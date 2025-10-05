@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Message</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .popup-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            opacity: 0;
+            transform: scale(0.9);
+            animation: popIn 0.4s ease-out forwards;
+        }
+        
+        @keyframes popIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .icon {
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .message {
+            background: #f7f7f7;
+            border-radius: 12px;
+            padding: 25px;
+            color: #333;
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: center;
+            word-wrap: break-word;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="popup-container">
+        <div class="icon">📱</div>
+        <h1>Your Message</h1>
+        <div class="message">
+            I bought this book from a local shop, and the library attendant asked me if it was my first book—I guess I didn’t look that nerdy. I told him yes, and he said that after reading it, I must pass it on to the person I love the most, the one I can see even when my eyes are closed. So after finishing it, I closed my eyes, and after my mom, I saw you (don’t overthink this). That’s why I’m passing it to you. I don’t care whether you burn this book with the letter, never read it even once, or laugh while telling your friends about it—because that’s absolutely fine.                                                                                                                                                                                                   mo hand writting bujhi pari buni sethilagi type kali :) au odia re lekhi thile tk filmy lagithanta ta sethi pain englis re lekhi chi...
+        </div>
+        <div class="footer">
+            Scanned successfully ✓
+        </div>
+    </div>
+</body>
+</html>
