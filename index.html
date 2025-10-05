@@ -64,6 +64,40 @@
             word-wrap: break-word;
         }
         
+        .audio-player {
+            margin-top: 25px;
+            text-align: center;
+        }
+        
+        .play-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .play-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .play-button:active {
+            transform: translateY(0);
+        }
+        
+        .play-button.playing {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
         .footer {
             text-align: center;
             margin-top: 20px;
@@ -74,14 +108,69 @@
 </head>
 <body>
     <div class="popup-container">
-        
+        <div class="icon"></div>
         <h1>Your Message</h1>
         <div class="message">
-            <b>I bought this book from a local shop, and the library attendant asked me if it was my first book—I guess I didn’t look that nerdy. I told him yes, and he said that after reading it, I must pass it on to the person I love the most, the one I can see even when my eyes are closed. So after finishing it, I closed my eyes, and after my mom, I saw you (don’t overthink this). That’s why I’m passing it to you. I don’t care whether you burn this book with the letter, never read it even once, or laugh while telling your friends about it—because that’s absolutely fine. <br><br>                                                                                                                                                                                                  mo hand writting bujhi pari buni sethilagi type kali :) au odia re lekhi thile tk filmy lagithanta ta sethi pain englis re lekhi chi...</b>
+            I bought this book from a local shop, and the library attendant asked me if it was my first book—I guess I didn’t look that nerdy. I told him yes, and he said that after reading it, I must pass it on to the person I love the most, the one I can see even when my eyes are closed. So after finishing it, I closed my eyes, and after my mom, I saw you (don’t overthink this). That’s why I’m passing it to you. I don’t care whether you burn this book with the letter, never read it even once, or laugh while telling your friends about it—because that’s absolutely fine.
         </div>
+        
+        <!-- Audio Player Section -->
+        <div class="audio-player">
+            <!-- Hidden audio element -->
+            <!-- PLACE YOUR AUDIO FILE PATH HERE -->
+            <!-- Replace "your-audio-file.mp3" with your actual audio file name -->
+            <!-- Example: <audio id="audioPlayer" src="your-audio-file.mp3"></audio> -->
+            <audio id="audioPlayer" src="SnapInsta.to_AQNLCY8pkxi-Nq1KHZGeavUNidO65X-b0XGPC9iaWGNE4WmvIw_4ho96qhlT6NRVuFAnZWU9KfEUPB-EiGVqXa4j3HoXMeCVsx0lPn4.mp3"></audio>
+            
+            <button class="play-button" id="playBtn">
+                <span id="playIcon"></span>
+                <span id="playText">Play Audio</span>
+            </button>
+        </div>
+        
         <div class="footer">
             Scanned successfully ✓
         </div>
     </div>
+    
+    <script>
+        // Audio player functionality with maximum volume
+        const audio = document.getElementById('audioPlayer');
+        const playBtn = document.getElementById('playBtn');
+        const playIcon = document.getElementById('playIcon');
+        const playText = document.getElementById('playText');
+        
+        // Set volume to maximum (1.0 = 100%)
+        audio.volume = 1.0;
+        
+        // Play/Pause functionality
+        playBtn.addEventListener('click', function() {
+            if (audio.paused) {
+                audio.play();
+                playBtn.classList.add('playing');
+                playIcon.textContent = '';
+                playText.textContent = 'Pause Audio';
+            } else {
+                audio.pause();
+                playBtn.classList.remove('playing');
+                playIcon.textContent ="";
+                playText.textContent = 'Play Audio';
+            }
+        });
+        
+        // Reset button when audio ends
+        audio.addEventListener('ended', function() {
+            playBtn.classList.remove('playing');
+            playIcon.textContent = '';
+            playText.textContent = 'Play Audio';
+        });
+        
+        // Ensure volume stays at maximum even if user tries to change it
+        audio.addEventListener('volumechange', function() {
+            if (audio.volume !== 1.0) {
+                audio.volume = 1.0;
+            }
+        });
+    </script>
 </body>
 </html>
